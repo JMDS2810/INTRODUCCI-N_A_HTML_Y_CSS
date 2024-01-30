@@ -977,7 +977,7 @@ Finalmente, se agrega un botón de envío dentro del último elemento `<div>`. E
 
 En este proceso, se ha aprendido a crear un formulario básico de registro para el sitio web. Se destacan elementos cruciales como el uso del atributo `method` para una transmisión segura, la asociación de etiquetas para mejorar la experiencia del usuario y la implementación de campos de entrada para recopilar información esencial. Este formulario proporcionará la base para que los usuarios configuren sus cuentas, marcando un paso importante para la expansión de los servicios de entrega en línea del restaurante.
 
-### Botones de Radio en Formularios HTML: Explorando y Creando
+### Botones de Radio en formularios HTML: 
 
 La comodidad de reservar servicios en línea ha llevado al restaurante mencionado anteriormente a implementar un sistema de reserva de mesas en su sitio web. Para lograrlo, se utilizarán botones de radio en un formulario HTML, permitiendo a los clientes elegir entre diferentes tamaños de mesa y ubicaciones. Veamos cómo configurar este formulario y proporcionar una experiencia de usuario mejorada.
 
