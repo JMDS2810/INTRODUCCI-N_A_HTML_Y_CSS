@@ -732,3 +732,307 @@ Las etiquetas `<meta>` en HTML permiten a los desarrolladores web comunicar info
 Para SEO, las metaetiquetas básicas como `<meta name="description"/>` ofrecen una breve descripción de la página, mientras que `<meta name="robots" content="index,follow"/>` instruye a los motores de búsqueda sobre cómo indexar la página. Las metaetiquetas HTTP-equiv, como `<meta http-equiv="content-type" content="text/html"/>`, definen el formato del documento devuelto por el servidor.
 
 En el ámbito móvil, `<meta name="viewport" content="width=device-width, initial-scale=1.0"/>` es crucial para especificar cómo se visualiza la página en dispositivos móviles. Esta hoja de trucos sirve como referencia práctica para implementar eficazmente metadatos y mejorar la visibilidad y usabilidad de las páginas web.
+
+### UX con metaetiquetas
+
+En el desarrollo web avanzado, se comprendió cómo las metaetiquetas, específicamente a través del Protocolo Open Graph, desempeñan un papel crucial en la mejora de la experiencia del usuario al compartir contenido en redes sociales. Estas metaetiquetas se incorporan en el elemento head del documento HTML, utilizando el atributo property para definir el nombre de los metadatos. Las propiedades esenciales, como título, tipo, URL e imagen, son fundamentales para crear vistas previas efectivas de los enlaces compartidos. Además, se exploraron propiedades opcionales que permiten una descripción más detallada de la página. La implementación adecuada de estas metaetiquetas se traduce en previsualizaciones informativas y atractivas, aumentando la probabilidad de obtener más clics cuando se comparten páginas web en redes sociales.
+
+1. **Metaetiquetas y previsualización en redes sociales:**
+   - Las redes sociales generan vistas previas de enlaces compartidos para informar a los usuarios sobre el contenido antes de hacer clic.
+   - El uso estratégico de metaetiquetas, específicamente del Protocolo Open Graph, es esencial para controlar qué información se muestra en estas previsualizaciones.
+
+2. **Protocolo Open Graph y metadatos:**
+   - Facebook introdujo el Protocolo Open Graph en 2010 para abordar el desafío de mostrar información sobre un sitio web antes de que un usuario haga clic en el enlace.
+   - Las metaetiquetas del Protocolo Open Graph se añaden al elemento head del documento HTML, utilizando el atributo property en lugar de name para definir el nombre de los metadatos.
+   - Cuatro propiedades esenciales del Protocolo Open Graph: título, tipo, URL e imagen. Estas propiedades permiten a las plataformas de redes sociales crear vistas previas efectivas del enlace compartido.
+
+3. **Propiedades del protocolo Open Graph:**
+   - **Título (og:title):** Define el título de la página, visible en la vista previa.
+   - **Tipo (og:type):** Especifica el tipo de contenido, como sitio web, vídeo, música o artículo.
+   - **URL (og:url):** Define la dirección web permanente de la página específica.
+   - **Imagen (og:image):** Especifica la URL de la imagen a mostrar cuando se comparte el sitio web.
+
+4. **Propiedades opcionales del protocolo Open Graph:**
+   - Propiedades como descripción, locale (idioma y territorio) y site name (nombre del sitio web) ofrecen información adicional sobre la página.
+
+**Ejemplos:**
+```html
+<head>
+    <!-- Propiedades esenciales del Protocolo Open Graph -->
+    <meta property="og:title" content="Título de la Página">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="URL de la Página">
+    <meta property="og:image" content="URL de la Imagen">
+
+    <!-- Propiedades opcionales -->
+    <meta property="og:description" content="Descripción de la Página">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Nombre del Sitio">
+</head>
+```
+## Entrada de usuarios y formularios
+
+### Formularios y validación
+
+Los formularios en HTML son elementos cruciales para interactuar con los usuarios y capturar información. Se utilizan comúnmente en situaciones como registros de cuentas, compras en línea o cualquier otro escenario que requiera la entrada de datos del usuario. Para crear un formulario básico en HTML, se utiliza el elemento `<form>`, que puede contener diversos elementos de entrada, botones y otros elementos relacionados con la captura de datos.
+
+**Ejemplo de código:**
+
+```html
+<form action="/procesar_formulario" method="post">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" required>
+
+    <label for="email">Correo electrónico:</label>
+    <input type="email" id="email" name="email" required>
+
+    <input type="submit" value="Enviar">
+</form>
+```
+
+En este ejemplo, se crea un formulario básico con campos de entrada para el nombre y el correo electrónico. El atributo `required` indica que estos campos deben ser completados antes de enviar el formulario. Al presionar el botón "Enviar", los datos se enviarán al servidor, donde pueden ser procesados.
+
+**Validación de formularios:**
+
+La validación de formularios es un proceso esencial para asegurarse de que los datos ingresados por los usuarios sean válidos y cumplan con las reglas definidas por el desarrollador. Existen dos enfoques principales: la validación del lado del cliente y la validación del lado del servidor.
+
+- **Validación del lado del cliente:**
+
+    Este método implica la verificación de errores tan pronto como el usuario ingresa datos en el formulario. El navegador web o JavaScript se encargan de este proceso, proporcionando retroalimentación inmediata al usuario.
+
+**Ejemplo de código:**
+
+```html
+<input type="email" id="email" name="email" required>
+```
+
+En este caso, se utiliza el atributo `type="email"` para validar que el contenido ingresado sea una dirección de correo electrónico válida. Además, el atributo `required` asegura que este campo no se deje en blanco.
+
+- **Validación del Lado del Servidor:**
+
+    Este enfoque verifica los datos después de que son enviados al servidor web, lo que brinda una capa adicional de seguridad contra manipulaciones malintencionadas. En este caso, la validación puede incluir comprobaciones más complejas, como la verificación en una base de datos o la validación con requisitos comerciales específicos.
+
+Ambos métodos de validación se utilizan de manera complementaria para proporcionar una experiencia de usuario fluida y garantizar la integridad de los datos. La combinación de atributos HTML y lógica del lado del servidor permite crear formularios robustos y seguros en aplicaciones web.
+
+### TIpos de entrada
+
+1. **Archivo:**
+    - Muestra un control que permite al usuario seleccionar y cargar un archivo desde su ordenador.
+      ```html
+      <label for="myfile">Select a file:</label>
+      <input type="file" id="myfile" name="myfile">
+      ```
+
+2. **Oculto:**
+    - Define un control que no se muestra pero cuyo valor se sigue enviando al servidor.
+      ```html
+      <input type="hidden" id="custId" name="custId" value="3487">
+      ```
+
+3. **Imagen:**
+    - Define una imagen como botón gráfico de envío. Utiliza el atributo "src" para señalar la ubicación de su archivo de imagen.
+      ```html
+      <input type="image" src="submit_img.png" alt="Submit" width="48" height="48">
+      ```
+
+4. **Número:**
+    - Define un control para introducir un número con restricciones opcionales, como valores mínimo y máximo permitidos.
+      ```html
+      <input type="number" id="quantity" name="quantity" min="1" max="5">
+      ```
+
+5. **Rango:**
+    - Muestra un widget de rango para especificar un número entre dos valores. Puede ser representado por un control deslizante o un dial.
+      ```html
+      <label for="volume">Volume:</label>
+      <input type="range" id="volume" name="volume" min="0" max="10">
+      ```
+
+6. **Restablecer:**
+    - Muestra un botón que restablece el contenido del formulario a sus valores por defecto.
+      ```html
+      <input type="reset">
+      ```
+
+7. **Buscar:**
+    - Define un campo de texto para introducir una consulta de búsqueda.
+      ```html
+      <label for="gsearch">Search in Google:</label>
+      <input type="search" id="gsearch" name="gsearch">
+      ```
+
+8. **Hora:**
+    - Muestra un control para introducir un valor horario en horas y minutos, sin zona horaria.
+      ```html
+      <label for="appt">Select a time:</label>
+      <input type="time" id="appt" name="appt">
+      ```
+
+9. **Tel:**
+    - Define un control para introducir un número de teléfono, con opción de validación mediante el atributo "patrón".
+      ```html
+      <label for="phone">Enter your phone number:</label>
+      <input type="tel" id="phone" name="phone" pattern="[+]{1}[0-9]{11,14}">
+      ```
+
+10. **URL:**
+    - Muestra un campo para introducir una URL de texto con validación automática antes de enviar al servidor.
+      ```html
+      <label for="homepage">Add your homepage:</label>
+      <input type="url" id="homepage" name="homepage">
+      ```
+
+11. **Semana:**
+    - Define un control para introducir una fecha consistente en un número de semana-año y un año, sin zona horaria.
+      ```html
+      <label for="week">Select a week:</label>
+      <input type="week" id="week" name="week">
+      ```
+
+12. **Mes:**
+    - Muestra un control para introducir un mes y un año, sin zona horaria.
+      ```html
+      <label for="bdaymonth">Birthday (month and year):</label>
+      <input type="month" id="bdaymonth" name="bdaymonth" min="1930-01" value="2000-01">
+      ```
+
+Estos ejemplos cubren una variedad de tipos de entrada en HTML, permitiendo a los desarrolladores construir formularios interactivos y personalizados según sus necesidades específicas. La elección del tipo de entrada dependerá del tipo de datos que se espera y del comportamiento deseado en la interfaz de usuario.
+
+### Creación de un formulario
+
+Para poner en contexto, un restaurante busca ampliar sus servicios permitiendo a los clientes realizar pedidos en línea y recibir comida a domicilio. Para ello, se requiere que los usuarios configuren una cuenta en su sitio web. En este proceso, aprenderemos a crear un formulario de registro simple utilizando HTML. 
+
+#### Estructura Básica del Documento HTML
+
+Se crea un archivo llamado `signup.html` con la estructura básica del documento HTML. Se inicia añadiendo el elemento de formulario, fundamental para recopilar datos del usuario de manera segura. Se configura el atributo `method` a `post` para garantizar el envío seguro de la información.
+
+```html
+<form action="#" method="post">
+    <!-- Campos del formulario se agregarán aquí -->
+</form>
+```
+
+#### Campos del Formulario
+
+El formulario debe recopilar información esencial del cliente, como nombre, apellido, dirección de correo electrónico y contraseña. Se crearán campos de entrada para estos datos.
+
+1. **Nombre de Pila:**
+   ```html
+   <div>
+       <label for="user_first_name">Nombre de Pila:</label>
+       <input type="text" id="user_first_name" name="user_first_name">
+   </div>
+   ```
+
+2. **Apellido:**
+   ```html
+   <div>
+       <label for="user_last_name">Apellido:</label>
+       <input type="text" id="user_last_name" name="user_last_name">
+   </div>
+   ```
+
+3. **Correo Electrónico:**
+   ```html
+   <div>
+       <label for="user_email">Correo Electrónico:</label>
+       <input type="email" id="user_email" name="user_email">
+   </div>
+   ```
+
+4. **Contraseña:**
+   ```html
+   <div>
+       <label for="user_password">Contraseña:</label>
+       <input type="password" id="user_password" name="user_password">
+   </div>
+   ```
+
+5. **Confirmar Contraseña:**
+   ```html
+   <div>
+       <label for="user_confirm_password">Confirmar Contraseña:</label>
+       <input type="password" id="user_confirm_password" name="user_confirm_password">
+   </div>
+   ```
+
+#### Asociación de etiquetas y mejora de la experiencia del usuario
+
+Cada campo de entrada se asocia con una etiqueta para mejorar la experiencia del usuario y facilitar la comprensión del formulario. Además, se añade un salto de línea después de cada etiqueta para una presentación ordenada.
+
+```html
+<label for="user_first_name">Nombre de Pila:</label>
+<input type="text" id="user_first_name" name="user_first_name"><br>
+```
+
+#### Botón de envío
+
+Finalmente, se agrega un botón de envío dentro del último elemento `<div>`. Este botón se utilizará para enviar los datos del formulario al backend.
+
+```html
+<div>
+    <button type="submit">Sign Up</button>
+</div>
+```
+
+En este proceso, se ha aprendido a crear un formulario básico de registro para el sitio web. Se destacan elementos cruciales como el uso del atributo `method` para una transmisión segura, la asociación de etiquetas para mejorar la experiencia del usuario y la implementación de campos de entrada para recopilar información esencial. Este formulario proporcionará la base para que los usuarios configuren sus cuentas, marcando un paso importante para la expansión de los servicios de entrega en línea del restaurante.
+
+### Botones de Radio en Formularios HTML: Explorando y Creando
+
+La comodidad de reservar servicios en línea ha llevado al restaurante mencionado anteriormente a implementar un sistema de reserva de mesas en su sitio web. Para lograrlo, se utilizarán botones de radio en un formulario HTML, permitiendo a los clientes elegir entre diferentes tamaños de mesa y ubicaciones. Veamos cómo configurar este formulario y proporcionar una experiencia de usuario mejorada.
+
+#### Estructura básica del documento HTML
+
+Se crea un nuevo archivo llamado `booking.html` con la estructura HTML básica. Se inicia añadiendo un elemento de formulario que contendrá botones de radio para seleccionar el tamaño de la mesa y la ubicación.
+
+```html
+<form action="#" method="post">
+    <fieldset id="size">
+        <!-- Botones de radio para el tamaño de la mesa se agregarán aquí -->
+    </fieldset>
+
+    <fieldset id="location">
+        <!-- Botones de radio para la ubicación se agregarán aquí -->
+    </fieldset>
+
+    <button type="submit">Book</button>
+</form>
+```
+
+#### Botones de radio para tamaño de mesa
+
+Dentro del primer `fieldset`, se añaden botones de radio para representar los diferentes tamaños de mesa disponibles (para dos personas, cuatro personas y seis personas).
+
+```html
+<input type="radio" id="two" name="size" value="2">
+<label for="two">Two-person table</label>
+
+<input type="radio" id="four" name="size" value="4" checked>
+<label for="four">Four-person table</label>
+
+<input type="radio" id="six" name="size" value="6">
+<label for="six">Six-person table</label>
+```
+
+#### Botones de radio para ubicación
+
+Dentro del segundo `fieldset`, se añaden botones de radio para seleccionar la ubicación de la mesa (interior o exterior).
+
+```html
+<input type="radio" id="indoor" name="location" value="interior" checked>
+<label for="indoor">Indoor</label>
+
+<input type="radio" id="outdoor" name="location" value="outdoors">
+<label for="outdoor">Outdoors</label>
+```
+
+#### Mejora de la experiencia del usuario en dispositivos móviles
+
+Para mejorar la experiencia en dispositivos móviles, se envuelven los textos y los botones de radio en elementos de etiqueta. Esto facilita la selección al hacer clic en el texto.
+
+```html
+<label for="two">Two-person table<input type="radio" id="two" name="size" value="2"></label>
+```
+
+El formulario de reserva de mesas se ha configurado con éxito utilizando botones de radio. Cada grupo de botones (tamaño y ubicación) está encapsulado en su propio `fieldset`, proporcionando claridad y estructura al formulario. La selección de un tamaño de mesa o ubicación anulará la elección previa, ya que los botones de radio permiten elegir solo una opción de cada grupo. Además, se implementa una mejora para dispositivos móviles al envolver los textos y botones en elementos de etiqueta, facilitando la selección en pantallas más pequeñas.
+
